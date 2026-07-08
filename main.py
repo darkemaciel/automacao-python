@@ -44,30 +44,22 @@ print(tabela_produtos)  # Exibe a tabela de produtos no console
 # Passo 4: Cadastrar 1 produto
 # Localizar os campos do formulário e preencher com os dados do produto
 for linha in tabela_produtos.index:
-    codigo = tabela_produtos.loc[linha, "codigo"]
-    marca = tabela_produtos.loc[linha, "marca"]
-    tipo = tabela_produtos.loc[linha, "tipo"]
-    categoria = tabela_produtos.loc[linha, "categoria"]
-    preco_unitario = tabela_produtos.loc[linha, "preco_unitario"]
-    custo = tabela_produtos.loc[linha, "custo"]
-    obs = tabela_produtos.loc[linha, "obs"]
-
-
+ 
     pyautogui.click(x=690, y=292)  # Clique no campo de código do produto
-    pyautogui.write(str(codigo))  # Digitar o código do produto
+    pyautogui.write(str(tabela_produtos.loc[linha, "codigo"]))  # Digitar o código do produto
     pyautogui.press("tab")
-    pyautogui.write(str(marca))
+    pyautogui.write(str(tabela_produtos.loc[linha, "marca"]))
     pyautogui.press("tab")
-    pyautogui.write(str(tipo))
+    pyautogui.write(str(tabela_produtos.loc[linha, "tipo"]))
     pyautogui.press("tab")
-    pyautogui.write(str(categoria))
+    pyautogui.write(str(tabela_produtos.loc[linha, "categoria"]))
     pyautogui.press("tab")
-    pyautogui.write(str(preco_unitario))
+    pyautogui.write(str(tabela_produtos.loc[linha, "preco_unitario"]))
     pyautogui.press("tab")
-    pyautogui.write(str(custo))
+    pyautogui.write(str(tabela_produtos.loc[linha, "custo"]))
     pyautogui.press("tab")
-    if obs != "nan":  # Verifica se há observações para o produto
-        pyautogui.write(str(obs))
+    if not pandas.isna(tabela_produtos.loc[linha, "obs"]):  # Verifica se há observações para o produto
+        pyautogui.write(str(tabela_produtos.loc[linha, "obs"]))
     pyautogui.press("enter")
     pyautogui.scroll(5000) # Rolar a tela para cima para cadastrar o próximo produto
 
