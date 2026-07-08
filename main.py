@@ -6,6 +6,9 @@ import pandas
 
 # Configurações do PyAutoGUI, como tempo de pausa entre as ações.
 pyautogui.PAUSE = 0.5
+# Configurações de segurança do PyAutoGUI, como a ativação do modo de segurança.
+pyautogui.FAILSAFE = True
+
 
 # Passo a passo do seu programa
 # Passo 1: Entrar no sistema da empresa
